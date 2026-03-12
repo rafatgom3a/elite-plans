@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove horizontal scrollbar */
+html {
+  overflow-x: hidden;
+}
+
+/* Custom vertical scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0a1628;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #23A796, #3ED4C0);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3ED4C0, #23A796);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #23A796 #0a1628;
+}
+
+@layer components {
+  .divider-teal {
+    background: linear-gradient(90deg, transparent, #23A796, transparent);
+  }
+  .text-shadow-teal {
+    text-shadow: 0 2px 20px rgba(35, 167, 150, 0.5);
+  }
+  .btn-teal {
+    @apply px-10 py-3.5 rounded-full font-semibold cursor-pointer;
+    background: #23A796;
+    color: white;
+  }
+  .teal-gradient {
+    background: linear-gradient(135deg, #23A796, #3ED4C0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .nav-blur {
+    background: rgba(5, 13, 21, 0.8);
+    backdrop-filter: blur(10px);
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(35, 167, 150, 0.15);
+  }
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(35, 167, 150, 0.3);
+  }
+}
+
+/* ── Clients Slider ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.clients-slider-wrapper {
+  direction: ltr !important;
+  unicode-bidi: isolate;
+}
+.clients-track {
+  display: flex;
+  flex-direction: row !important;
+  width: max-content;
+  direction: ltr !important;
+  animation: marquee 28s linear infinite;
+}
+.clients-track-reverse {
+  display: flex;
+  flex-direction: row !important;
+  width: max-content;
+  direction: ltr !important;
+  animation: marquee-reverse 32s linear infinite;
+}
+.clients-track:hover,
+.clients-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* ── Parallax banner image entry animation ── */
+@keyframes kenburns {
+  0%   { transform: scale(1.18) translateY(0px); }
+  100% { transform: scale(1.05) translateY(-20px); }
+}

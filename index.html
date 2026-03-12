@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a1628" />
+    <meta name="description" content="Elite Plans - Financial Consulting & Business Solutions" />
+    <meta name="color-scheme" content="dark" />
+    <title>Elite Plans | خطط النخبة</title>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              teal: {
+                300: '#3ED4C0',
+                400: '#2bbfac',
+                500: '#23A796',
+                600: '#1a8a7a',
+              },
+              navy: {
+                900: '#050d15',
+                800: '#0a1628',
+                700: '#0d1b2a',
+                600: '#112236',
+                500: '#162b42',
+              },
+            },
+            fontFamily: {
+              playfair: ['Playfair Display', 'serif'],
+              dm:       ['DM Sans', 'sans-serif'],
+              cairo:    ['Cairo', 'sans-serif'],
+            },
+            animation: {
+              'fade-up':    'fadeUp 0.7s ease-out forwards',
+              'fade-in':    'fadeIn 1s ease-out forwards',
+              'slide-right':'slideRight 0.6s ease-out forwards',
+              'float':      'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeUp:     { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+              fadeIn:     { '0%': { opacity: '0' },                                '100%': { opacity: '1' } },
+              slideRight: { '0%': { opacity: '0', transform: 'translateX(-30px)' },'100%': { opacity: '1', transform: 'translateX(0)' } },
+              float:      { '0%, 100%': { transform: 'translateY(0px)' },          '50%':  { transform: 'translateY(-15px)' } },
+            },
+          }
+        }
+      }
+    </script>
+
+    <style>
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background-color: #0a1628;
+        color: #e8e8e8;
+      }
+
+      /* Glass surfaces */
+      .glass {
+        background: rgba(255,255,255,0.04);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(35,167,150,0.15);
+      }
+      .glass-dark {
+        background: rgba(5,13,21,0.7);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(35,167,150,0.12);
+      }
+
+      /* Teal text gradient */
+      .teal-gradient {
+        background: linear-gradient(135deg, #23A796 0%, #3ED4C0 50%, #23A796 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Section backgrounds */
+      .hero-bg {
+        background:
+          radial-gradient(ellipse at 20% 50%, rgba(35,167,150,0.08) 0%, transparent 60%),
+          radial-gradient(ellipse at 80% 20%, rgba(35,167,150,0.05) 0%, transparent 50%),
+          linear-gradient(180deg, #050d15 0%, #0a1628 40%, #0d1b2a 100%);
+      }
+      .section-bg {
+        background: linear-gradient(180deg, #0a1628 0%, #0d1b2a 100%);
+      }
+
+      /* Card hover */
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 60px rgba(35,167,150,0.15);
+      }
+
+      /* Navbar */
+      .nav-blur {
+        background: rgba(5,13,21,0.85);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(35,167,150,0.12);
+      }
+
+      /* Buttons */
+      .btn-teal {
+        background: linear-gradient(135deg, #23A796, #3ED4C0);
+        color: #050d15;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+      .btn-teal:hover {
+        background: linear-gradient(135deg, #3ED4C0, #23A796);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(35,167,150,0.4);
+      }
+      .btn-outline {
+        border: 1px solid rgba(35,167,150,0.6);
+        color: #23A796;
+        background: transparent;
+        transition: all 0.3s ease;
+      }
+      .btn-outline:hover {
+        background: rgba(35,167,150,0.1);
+        border-color: #23A796;
+        transform: translateY(-2px);
+      }
+
+      /* Divider */
+      .divider-teal {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #23A796, transparent);
+      }
+
+      /* Text glow */
+      .text-shadow-teal {
+        text-shadow: 0 0 40px rgba(35,167,150,0.3);
+      }
+
+      /* RTL */
+      [dir="rtl"] .rtl-flip { transform: scaleX(-1); }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar       { width: 6px; }
+      ::-webkit-scrollbar-track { background: #050d15; }
+      ::-webkit-scrollbar-thumb { background: #23A796; border-radius: 3px; }
+
+      /* Mobile menu animation */
+      @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .mobile-menu-enter { animation: slideDown 0.3s ease-out; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
