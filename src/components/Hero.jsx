@@ -7,10 +7,12 @@ const Hero = ({ t, lang, onNavigate }) => {
     setTimeout(() => setVisible(true), 100);
   }, []);
 
+  const isAr = lang === "ar";
+
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-end overflow-hidden"
+      className="relative min-h-screen flex items-center sm:items-end overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0">
@@ -44,22 +46,20 @@ const Hero = ({ t, lang, onNavigate }) => {
       </div>
 
       {/* CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-24 sm:pb-24 sm:pt-0">
         <div
           className={`max-w-3xl ${
-            lang === "ar" ? "ml-auto text-right" : "mr-auto text-left"
+            isAr ? "ml-auto text-right" : "mr-auto text-left"
           }`}
         >
           {/* TITLE */}
           <h1
             className={`mb-6 leading-tight transition-all duration-700 ${
-              visible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             } ${
-              lang === "ar"
-                ? "font-cairo font-black text-6xl sm:text-7xl lg:text-8xl"
-                : "font-playfair font-bold text-6xl sm:text-7xl lg:text-8xl"
+              isAr
+                ? "font-cairo font-black text-5xl sm:text-7xl lg:text-8xl"
+                : "font-playfair font-bold text-5xl sm:text-7xl lg:text-8xl"
             }`}
           >
             <span className="text-white">{t.hero.title}</span>
@@ -68,13 +68,11 @@ const Hero = ({ t, lang, onNavigate }) => {
           {/* SUBTITLE */}
           <h2
             className={`mb-8 transition-all duration-700 delay-150 ${
-              visible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             } ${
-              lang === "ar"
-                ? "font-cairo font-semibold text-3xl sm:text-4xl"
-                : "font-playfair text-2xl sm:text-3xl"
+              isAr
+                ? "font-cairo font-semibold text-2xl sm:text-4xl"
+                : "font-playfair text-xl sm:text-3xl"
             }`}
             style={{ color: "#23A796" }}
           >
@@ -83,14 +81,12 @@ const Hero = ({ t, lang, onNavigate }) => {
 
           {/* DESCRIPTION */}
           <p
-            className={`text-gray-200 mb-10 max-w-2xl leading-relaxed transition-all duration-700 delay-200 ${
-              visible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
+            className={`text-gray-200 mb-10 leading-relaxed transition-all duration-700 delay-200 whitespace-nowrap overflow-hidden text-ellipsis ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             } ${
-              lang === "ar"
-                ? "font-cairo text-3xl sm:text-4xl"
-                : "font-dm text-2xl sm:text-4xl"
+              isAr
+                ? "font-cairo text-xl sm:text-3xl sm:text-4xl"
+                : "font-dm text-lg sm:text-2xl sm:text-4xl"
             }`}
           >
             {t.hero.description}
@@ -98,15 +94,13 @@ const Hero = ({ t, lang, onNavigate }) => {
 
           {/* BUTTONS */}
           <div
-            className={`flex flex-wrap gap-4 transition-all duration-700 delay-300 ${
-              visible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
+            className={`flex gap-3 transition-all duration-700 delay-300 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            } ${isAr ? "flex-row-reverse" : "flex-row"}`}
           >
             <button
               onClick={() => onNavigate("services")}
-              className="px-10 py-4 rounded-full font-semibold text-lg text-white"
+              className="flex-1 sm:flex-none px-6 sm:px-10 py-4 rounded-full font-semibold text-base sm:text-lg text-white whitespace-nowrap"
               style={{ background: "#23A796" }}
             >
               {t.hero.cta1}
@@ -114,7 +108,7 @@ const Hero = ({ t, lang, onNavigate }) => {
 
             <button
               onClick={() => onNavigate("contact")}
-              className="px-10 py-4 rounded-full font-semibold text-lg border border-white text-white hover:bg-white hover:text-black transition"
+              className="flex-1 sm:flex-none px-6 sm:px-10 py-4 rounded-full font-semibold text-base sm:text-lg border border-white text-white hover:bg-white hover:text-black transition whitespace-nowrap"
             >
               {t.hero.cta2}
             </button>
