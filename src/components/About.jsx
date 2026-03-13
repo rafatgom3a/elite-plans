@@ -1,5 +1,5 @@
 import WhoWeAre      from './about/WhoWeAre';
-import WhyUs         from './About/WhyUs';
+import WhyUs         from './about/WhyUs';
 import OurPartners   from './about/OurPartners';
 import OurClients    from './about/OurClients';
 import VisionMission from './about/VisionMission';
