@@ -37,6 +37,7 @@ const clients = [
   { src: '/client34.png', alt: 'Client 34' },
   { src: '/client35.png', alt: 'Client 35' },
   { src: '/client36.png', alt: 'Client 36' },
+  { src: '/client37.png', alt: 'Client 37' },
 ];
 
 const OurClients = ({ isAr }) => {
